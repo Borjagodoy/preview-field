@@ -7,7 +7,12 @@
 <custom-element-demo>
   <template>
     <link rel="import" href="preview-field.html">
-    <preview-field metions
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+ <preview-field metions
           hasthags
           text="Y, viéndole @donQuijote de aquella manera, con muestras de tanta tristeza, le dijo: 
           
@@ -25,13 +30,7 @@
 
           https://google.com"
           ></preview-field>
-  </template>
-</custom-element-demo>
-```
--->
-```html
-<preview-field>
-</preview-field>
+
 ```
 
 ### Properties
