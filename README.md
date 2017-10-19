@@ -6,7 +6,7 @@
 ```
 <custom-element-demo>
   <template>
-    <link rel="import" href="../preview-field.html">
+    <link rel="import" href="preview-field.html">
   </template>
 </custom-element-demo>
 ```
