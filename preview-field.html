@@ -1,0 +1,93 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<dom-module id="preview-field">
+  <template>
+    <style>
+      :host {
+        display: block;
+        --link-color: #14acd5;
+      }
+      #field {
+        @apply --field-class;
+        white-space: pre-line;
+      }
+      .link {
+        @apply --link-class;
+        color: var(--link-color);
+        text-decoration: none;
+      }
+    </style>
+    <span id="field">
+    </span>
+  </template>
+
+  <script>
+    /**
+     * `preview-field`
+     * 
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class PreviewField extends Polymer.Element {
+      static get is() { return 'preview-field'; }
+      static get properties() {
+        return {
+          text: {
+            type: String,
+            observer: 'parseText',
+          },
+          metions: Boolean,
+          hashtags: Boolean,
+        };
+      }
+      /**
+        * Parsing text to be preview and instert in the field span
+        *
+        * @param {newVal} The text to preview
+      */
+      parseText(newVal) {
+        let text = this.urlify(newVal);
+        if(this.metions){
+         text = this.mentionsfy(text);
+        }
+        if(this.hashtags){
+         text = this.hashtagsfy(text);
+        }
+        this.$.field.innerHTML = text;  
+      }
+      /**
+        * Replace the links for tags href 
+        *
+        * @param {text} text that replace links
+        * @return {String} The new text with the links replaced
+      */
+      urlify(text) {
+        const urlRegex = /(https?:\/\/[^\s]+)/g; 
+        return text.replace(urlRegex, '<a class="link" target="'+this.targetUrl+'" href="$1">$1</a>');
+      }
+      /**
+        * Replace the @mentions for tags href 
+        *
+        * @param {text} text that replace @mentions
+        * @return {String} The new text with the @mentions replaced
+      */
+      mentionsfy(text) {
+        const urlRegex = /(@[^,\s]+)/g; 
+        return text.replace(urlRegex, '<a class="link"target="' + this.targetMentions +'" href="$1">$1</a>');
+      }
+      /**
+        * Replace the #hasthags for tags href 
+        *
+        * @param {text} text that replace @hasthags
+        * @return {String} The new text with the #hasthags replaced
+      */
+      hashtagsfy(text) {
+        const urlRegex = /(#[^,\s]+)/g; 
+        return text.replace(urlRegex, '<a class="link"target="' + this.targetHashtag+'" href="$1">$1</a>');
+      }
+    }
+    window.customElements.define(PreviewField.is, PreviewField);
+  </script>
+</dom-module>
