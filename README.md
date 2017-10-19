@@ -7,8 +7,7 @@
 <custom-element-demo>
   <template>
     <link rel="import" href="preview-field.html">
-    <preview-field
-          metions
+    <preview-field metions
           hasthags
           text="Y, viéndole @donQuijote de aquella manera, con muestras de tanta tristeza, le dijo: 
           
@@ -31,24 +30,7 @@
 ```
 -->
 ```html
-<preview-field
-    metions
-    hasthags
-    text="Y, viéndole @donQuijote de aquella manera, con muestras de tanta tristeza, le dijo: 
-    
-    #Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto ha de serenar el tiempo
-    y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de aquí se sigue que, habiendo
-    durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que a mí me suceden, pues a ti
-    no te cabe parte dellas.
-
-    Y, viéndole @donQuijote de aquella manera, con muestras de tanta tristeza, le dijo: 
-    
-    #Sábete, Sancho, que no es un hombre más que otro si no hace más que otro. Todas estas borrascas que nos suceden son señales de que presto
-    ha de serenar el tiempo y han de sucedernos bien las cosas; porque no es posible que el mal ni el bien sean durables, y de
-    aquí se sigue que, habiendo durado mucho el mal, el bien está ya cerca. Así que, no debes congojarte por las desgracias que
-    a mí me suceden, pues a ti no
-
-    https://google.com">
+<preview-field>
 </preview-field>
 ```
 
